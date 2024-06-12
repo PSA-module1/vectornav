@@ -4,8 +4,6 @@
 	<arg name="async_output_rate" default="40"/>
 
 	<arg name="map_frame_id" default="map"/>
-	<arg name="frame_id" default="imu_link"/>
-
 	<arg name="param_file" default="vn100"/>
 
 	<node pkg="vectornav" type="vnpub" name="vectornav" output="screen" >
