@@ -1,10 +1,12 @@
 <?xml version="1.0"?>
 <launch>
-	<arg name="frame_id" default="vectornav"/>
-	<arg name="async_output_rate" default="40"/>
+	<arg name="frame_id" default="vectornav"/> 
+	<arg name="serial_baud" default="115200"/> <!-- Acceptable baud rates : 9600, 19200, 38400, 57600, 115200, 230400, 460800, 921600 -->
+	<arg name="async_output_rate" default="100"/> <!-- Acceptable rates : 1, 2, 5, 10, 20, 25, 50, 100, 200 -->
 
 	<arg name="map_frame_id" default="map"/>
 	<arg name="param_file" default="vn100"/>
+
 
 	<node pkg="vectornav" type="vnpub" name="vectornav" output="screen" >
 	  <param name="frame_id" value="$(arg frame_id)"/>
