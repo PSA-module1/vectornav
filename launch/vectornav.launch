@@ -1,10 +1,18 @@
 <?xml version="1.0"?>
 <launch>
 	<arg name="frame_id" default="vectornav"/>
+	<arg name="async_output_rate" default="40"/>
+
+	<arg name="map_frame_id" default="map"/>
+	<arg name="frame_id" default="imu_link"/>
+
+	<arg name="param_file" default="vn100"/>
 
 	<node pkg="vectornav" type="vnpub" name="vectornav" output="screen" >
 	  <param name="frame_id" value="$(arg frame_id)"/>
-      <rosparam command="load" file="$(find vectornav)/params/vn200.yaml" />
+      <rosparam command="load" file="$(find vectornav)/params/$(arg param_file).yaml" />
+	  <param name="async_output_rate" value="$(arg async_output_rate)"/>
+	  <param name="map_frame_id" value="$(arg map_frame_id)"/>
 	</node>	
 	
 </launch>
